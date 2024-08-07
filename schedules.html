@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column">
+    <style>
+        .nav-link {
+            position: relative; 
+            display: inline-block; 
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px; 
+            background: #f1f1f1ff; 
+            transform: scaleX(0); 
+            transition: transform 0.5s ease;
+        }
+        
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+        
+        
+        .zaokraglony-dol {
+            position: relative;
+            background-color: #fff; 
+            overflow: hidden;
+          }
+          
+          .zaokraglony-dol::before {
+            content: '';
+            position: absolute;
+            bottom: -25px; 
+            left: 0;
+            width: 100%;
+            height: 50px; 
+            background-color: #fff; 
+            border-radius: 50%;
+          }
+          #tutors {
+            margin-top: -440px; 
+        }
+        
+        .hr-text {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #777777; 
+          }
+          
+          .hr-text::before,
+          .hr-text::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #777777; 
+            margin: 0 10px; 
+          }
+          
+          .hr-text-content {
+            padding: 0 10px; 
+          }
+          .avatar {
+            height: 3rem;
+            width: 3rem;
+            position: relative;
+            display: inline-block !important;
+          }
+          
+          .avatar-img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+          }
+          
+          .avatar-group {
+            padding: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+          }
+          .avatar-group > li {
+            position: relative;
+          }
+          .avatar-group > li:not(:last-child) {
+            margin-right: -0.8rem;
+          }
+          .avatar-group .avatar-img {
+            border: 2px solid var(--bs-body-bg);
+          }
+          
+          .avatar .avatar-name {
+            margin-left: 7px;
+          }
+          
+          .avatar-xs {
+            height: 2.1875rem;
+            width: 2.1875rem;
+          }
+          
+          .avatar-sm {
+            height: 2.5rem;
+            width: 2.5rem;
+          }
+          
+          .avatar-lg {
+            height: 4rem;
+            width: 4rem;
+          }
+          
+          .avatar-xl {
+            height: 5.125rem;
+            width: 5.125rem;
+          }
+          
+          .avatar-xxl {
+            height: 5.125rem;
+            width: 5.125rem;
+          }
+          @media (min-width: 768px) {
+            .avatar-xxl {
+              width: 8rem;
+              height: 8rem;
+            }
+          }
+          
+          .avatar-xxxl {
+            height: 8rem;
+            width: 8rem;
+          }
+          @media (min-width: 768px) {
+            .avatar-xxxl {
+              width: 11rem;
+              height: 11rem;
+            }
+          }
+
+    </style>
+
+    <nav class="sticky-top navbar navbar-expand-lg navbar-dark p-4 fs-5 " style="background-color: rgba(34,153,195,1); color: #2299c3; ">
+        <div class="container">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portal.html">Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutors.html">Tutors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 3</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">link 4</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="dashboard-tutor.html">Tutor Dash</a></li>
+                            <li><a class="dropdown-item" href="dashboard-student.html">Student Dash</a></li>
+                            <li><a class="dropdown-item" href="profile-tutor.html">Tutor Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <div class="dropdown ms-1 ms-lg-0">
+                        <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="avatar-img rounded-circle" src="src/man1.png" alt="avatar">
+                        </a>
+                        <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                            <!-- Profile info -->
+                            <li class="px-3 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <!-- Avatar -->
+                                    <div class="avatar me-3">
+                                        <img class="avatar-img rounded-circle shadow" src="src/man2.png" alt="avatar">
+                                    </div>
+                                    <div>
+                                        <a class="h6" href="#">Jan Kowalski</a>
+                                        <p class="small m-0">example@gmail.com</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li> <hr class="dropdown-divider"></li>
+                            <!-- Links -->
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+                            <li> <hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+                            <!-- Dark mode options START -->
+
+                        </ul>
+                    </div>
+                </ul>
+
+<!--
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="#">Register</a></li>
+                </ul>
+-->
+            </div>
+        </div>
+    </nav>
+    <!-- navbar login -->
+    <header class="zaokraglony-dol" style="background: #2d4dfd;
+                    background: linear-gradient(0deg, #2d4dfd 0%, rgba(34,153,195,1) 100%);">
+
+
+        <div class="container" style="min-height: 541px;">
+
+        </div>
+    </header>
+
+    
+    <div class="container-fluid">
+
+        
+        <section id="tutors" class="pb-4">
+          <div class="p-3 my-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb-3 card text-light bg-dark border-0 p-4 shadow-sm">
+                        <nav class="nav flex-column">
+                            <a class="nav-link text-light active" aria-current="page" href="dashboard-tutor.html"><i class="fa-solid fa-table-cells px-2"></i> Dashboard</a>
+                            <a class="nav-link text-light" href="tutors-modules.html"><i class="fa-solid fa-brain mx-2"></i> Modules</a>
+                            <a class="nav-link text-light" href="schedules.html"><i class="fa-regular fa-calendar-days mx-2"></i> My schedules</a>
+                            <a class="nav-link text-light" href="tutor-contacts.html"><i class="fa-solid fa-address-book mx-2"></i> My Contacts</a>
+                            <a class="nav-link text-light" href="tutors-students.html"><i class="fa-solid fa-user-graduate mx-2"></i> My Students</a>
+                            <a class="nav-link text-light" href="messages.html"><i class="fa-solid fa-envelope mx-2"></i> Messages</a>
+                            <a class="nav-link text-light" href="tutor-meetings.html"><i class="fa-solid fa-handshake-simple mx-2"></i> Meetings</a>
+                            <a class="nav-link text-light" href="#"><i class="fa-solid fa-comments mx-2"></i> Discusions</a>
+                            <a href="edit-profile-tutor.html" class="nav-link text-light"><i class="fa-solid fa-pen-to-square mx-2"></i> Edit Profile</a>
+                            <a href="settings-tutor.html" class="nav-link text-light"><i class="fa-solid fa-gears mx-2"></i> Settings</a>
+                            <a href="" class="nav-link text-danger"><i class="fa-solid fa-gears mx-2"></i> Log Out</a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="mb-3 card border-0 p-4 shadow-sm">
+                        <h2 class="display-4 mb-4">My schedules</h2>
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <i class="fa-solid fa-chevron-left"></i> <h3>December 2023</h3> <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="border">Monday</th>
+                                            <th class="border">Tuesday</th>
+                                            <th class="border">Wednsday</th>
+                                            <th class="border">Thursday</th>
+                                            <th class="border">Friday</th>
+                                            <th class="border">Saturday</th>
+                                            <th class="border">Sunday</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 14.28%;" class="border">27</td>
+                                            <td style="width: 14.28%;" class="border">28</td>
+                                            <td style="width: 14.28%;" class="border">29</td>
+                                            <td style="width: 14.28%;" class="border">30</td>
+                                            <td style="width: 14.28%;" class="border p-0">
+                                                <div class="d-flex flex-column h-100">
+                                                    <span class="m-2">1</span>
+                                                    <p class="mb-1 mx-0 p-1 lh-sm" style="background-color: #faf;">Meeting with: <a href="" class="text-orange text-decoration-none">Marko Polo</a></p>
+                                                    <p class="p-1" style="background-color: #b3f4ff;">Meeting with: <a href="" class="text-orange text-decoration-none">Marko Polo</a></p>
+                                                </div>
+
+                                            </td>
+                                            <td style="height: 5rem; width: 14.28%;" class="border">2</td>
+                                            <td style="height: 5rem; width: 14.28%;" class="border">3</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 5rem;" class="border">4</td>
+                                            <td style="height: 5rem;" class="border">5</td>
+                                            <td style="height: 5rem;" class="border">6</td>
+                                            <td style="height: 5rem;" class="border">7</td>
+                                            <td style="height: 5rem;" class="border">8</td>
+                                            <td style="height: 5rem;" class="border">9</td>
+                                            <td style="height: 5rem;" class="border">10</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 5rem;" class="border">11</td>
+                                            <td style="height: 5rem;" class="border">12</td>
+                                            <td style="height: 5rem;" class="border">13</td>
+                                            <td style="height: 5rem;" class="border">14</td>
+                                            <td style="width: 14.28%;" class="border p-0">
+                                                <div class="d-flex flex-column h-100">
+                                                    <span class="m-2">15</span>
+                                                    <p class="mb-1 mx-0 p-1 lh-sm" style="background-color: #d2b3fa;">Meeting with: <a href="" class="text-orange text-decoration-none">Marko Polo</a></p>
+                                                </div>
+
+                                            </td>
+                                            <td style="height: 5rem;" class="border">16</td>
+                                            <td style="height: 5rem;" class="border">17</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 5rem;" class="border">18</td>
+                                            <td style="height: 5rem;" class="border">19</td>
+                                            <td style="height: 5rem;" class="border">20</td>
+                                            <td style="height: 5rem;" class="border">21</td>
+                                            <td style="height: 5rem;" class="border">22</td>
+                                            <td style="height: 5rem;" class="border">23</td>
+                                            <td style="height: 5rem;" class="border">24</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 5rem;" class="border">25</td>
+                                            <td style="width: 14.28%;" class="border p-0">
+                                                <div class="d-flex flex-column h-100">
+                                                    <span class="m-2">1</span>
+                                                    <p class="p-1" style="background-color: #a2dd9c;">IT Module 1: <a href="" class="text-orange text-decoration-none">John Wick</a></p>
+                                                </div>
+
+                                            </td>
+                                            <td style="height: 5rem;" class="border">27</td>
+                                            <td style="height: 5rem;" class="border">28</td>
+                                            <td style="height: 5rem;" class="border">29</td>
+                                            <td style="height: 5rem;" class="border">30</td>
+                                            <td style="height: 5rem;" class="border">31</td>
+                                        </tr>
+                                        <!-- Kontynuuj wypełnianie dni... -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+
+    </div>
+
+            <!-- footer -->
+            <footer class="py-lg-8 py-5">
+                <div class="container">
+                    <div class="row  justify-content-center text-center">
+                        <div class="col-12 col-md-12 col-xl-8 px-0 ">
+                            <nav class="nav nav-footer justify-content-center">
+                                <a class="nav-link link-secondary" href="#">About </a>
+                                <a class="nav-link link-secondary" href="#">Blog </a>
+                                <a class="nav-link link-secondary" href="#">Send feedback</a>
+                                <a class="nav-link link-secondary" href="#">Terms & Conditions</a>
+                                <a class="nav-link link-secondary" href="#">Get Support</a>
+                            </nav>
+                        </div>
+                        <!-- Desc -->
+                        <div class="col-lg-8 col-md-12 col-12">
+                            <div class="my-6 d-flex justify-content-center">
+                                <!--Facebook-->
+                                <a href="#" class="nav-link">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                                <!--Twitter-->
+                                <a href="#" class="nav-link">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                                <!--LinkedIn-->
+                                <a href="#" class="nav-link">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                                <!--insta -->
+                                <a href="#" class="nav-link">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <!--twitch-->
+                                <a href="#" class="nav-link">
+                                    <i class="fa-brands fa-twitch"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-12 col-12">
+                            <span>© <span id="copyright3">2023
+                            </span> TS-Website , Inc. All Rights Reserved</span>
+                        </div>
+                    
+                        <!-- Links -->
+                    
+                    </div>
+                </div>
+            </footer>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
